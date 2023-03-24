@@ -9,5 +9,5 @@ export const registerCheck = yup.object().shape({
   password: yup
     .string()
 
-    .min(6, "A senha deve conter ao menos 8 caracteres"),
+    .min(8, "A senha deve conter ao menos 8 caracteres"),
 });
