@@ -34,6 +34,12 @@ export const DivSum = styled.div`
     border-radius: 8px;
     padding: 0px 20px 0px 20px;
     border: 0px;
+    :hover {
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      border: 2px solid white;
+    }
     @media (max-width: 800px) {
       width: 100%;
     }

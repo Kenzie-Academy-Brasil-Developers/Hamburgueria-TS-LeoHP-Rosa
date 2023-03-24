@@ -32,7 +32,9 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
     localStorage.clear();
     navigate("/");
   };
-
+  const [menuList, setMenuList] = useState([]);
+  const [allList, setAllList] = useState([]);
+  const [filtered, setFiltered] = useState("");
   const [active, setActive] = useState(false);
 
   function filters(value: string) {
@@ -60,19 +62,16 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
   const [menuCart, setMenuCart] = useState(
     localStorageMenu ? JSON.parse(localStorageMenu) : []
   );
-  const [menuList, setMenuList] = useState([]);
-  const [allList, setAllList] = useState([]);
-  const [filtered, setFiltered] = useState("");
+
   useEffect(() => {
     async function getList() {
       const token = localStorage.getItem("@TOKEN");
-      console.log(token);
       if (token) {
         try {
           const response = await api.get("/products", {
             headers: { Authorization: `Bearer ${token}` },
           });
-          console.log(response);
+
           setMenuList(response.data);
           setAllList(response.data);
         } catch (err) {

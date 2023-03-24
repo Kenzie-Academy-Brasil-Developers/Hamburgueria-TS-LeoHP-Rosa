@@ -38,9 +38,9 @@ const LoginCont = () => {
     <LeftCont>
       <h2>Login</h2>
       <form onSubmit={handleSubmit(submit)}>
-        <label htmlFor="">Nome</label>
+        <label htmlFor="">Email</label>
         <input
-          placeholder="Digite seu Login"
+          placeholder="Digite seu e-mail"
           type="text"
           {...register("email")}
         />

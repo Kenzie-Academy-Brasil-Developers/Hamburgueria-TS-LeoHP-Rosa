@@ -24,7 +24,8 @@ export const BtnRemove = styled.button`
 `;
 export const Navbar = styled.div`
   height: 80px;
-  width: 100%;
+
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,10 +44,11 @@ export const Navbar = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 1rem;
   }
   .logout {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 60px;
     background-color: rgba(206, 209, 211, 0.607);
     margin-right: -20px;
     margin-left: 2px;
@@ -59,11 +61,16 @@ export const Navbar = styled.div`
       border: 1px solid red;
       transform: scale(1.02);
       cursor: pointer;
+      background-color: red;
+      .svgIcon {
+        path {
+          stroke: white;
+        }
+      }
     }
   }
   .svgIcon {
-    color: #27ae60;
-    stroke: #27ae60;
+    font-size: 20px;
   }
   .inputSearch {
     height: 60px;

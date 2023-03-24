@@ -37,7 +37,7 @@ const RegisterCont = () => {
       <form onSubmit={handleSubmit(submit)}>
         <label htmlFor="">Nome</label>
         <input
-          placeholder="Digite seu Login"
+          placeholder="Digite seu Nome"
           type="text"
           {...register("name")}
         />

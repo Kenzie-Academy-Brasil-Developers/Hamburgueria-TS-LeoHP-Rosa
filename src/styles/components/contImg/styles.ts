@@ -14,8 +14,9 @@ export const ContImgStyle = styled.div`
     justify-content: center;
     box-shadow: 0 0 0 2px 0.1 black;
     img {
-      width: 90%;
-      height: 90%;
+      width: 25rem;
+      height: 15rem;
+      margin-top: 5rem;
     }
   }
   img {

@@ -13,6 +13,10 @@ export const ButtonGreen = styled.button`
   font-size: 16px;
   font-weight: 600;
   border: 1px solid var(--color-green);
+  :hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 `;
 export const GreyButton = styled.button`
   height: 60px;
@@ -25,4 +29,9 @@ export const GreyButton = styled.button`
   background-color: var(--grey-1);
   border: 1px solid var(--grey-1);
   color: var(--grey-2);
+  :hover {
+    color: 1px solid var(--black);
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 `;

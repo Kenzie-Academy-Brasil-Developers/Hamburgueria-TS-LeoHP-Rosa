@@ -25,14 +25,16 @@ export const DivMain = styled.div`
 `;
 export const AppDiv = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-
+  width: 100vw;
   height: 100vh;
 `;
 
 export const LoginStyle = styled.div`
   display: flex;
+  width: 100vw;
+  height: 100vh;
   flex-direction: row;
   gap: 2rem;
+  align-items: center;
+  justify-content: center;
 `;

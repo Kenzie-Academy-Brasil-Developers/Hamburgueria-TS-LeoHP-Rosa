@@ -1,7 +1,8 @@
-import { createContext, useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
+import { CartContext } from "./CartContext";
 
 export const UserContext = createContext({} as IcartProps);
 interface IcartProps {
@@ -15,6 +16,7 @@ interface iUserProviderProps {
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
   const navigate = useNavigate();
+  const { menuList, setMenuList } = useContext(CartContext);
   const submit = (data: any) => {
     regUser(data);
   };
@@ -59,7 +61,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
           navigate("/home");
         } catch (err) {
           console.log(err);
-          // navigate("/");
+          navigate("/");
           localStorage.clear();
         }
       } else {

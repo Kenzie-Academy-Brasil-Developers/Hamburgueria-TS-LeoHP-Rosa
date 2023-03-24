@@ -9,9 +9,8 @@ const ContImg = () => {
         <h3> Kenzie</h3>
       </DivTitle>
       <span>
-        <img src="item.png" alt="" />
+        <img src="Group 141.svg" alt="" />
       </span>
-      <img src="Group 135.svg" alt="" />
     </ContImgStyle>
   );
 };

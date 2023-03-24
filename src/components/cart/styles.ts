@@ -27,16 +27,23 @@ export const CartLi = styled.li`
       margin-left: 1rem;
     }
     h2 {
-      font-size: 12px;
+      font-size: 16px;
     }
     span {
-      font-size: 10px;
+      font-size: 12px;
+      color: black;
     }
   }
   button {
     background-color: transparent;
     border: 0px;
     margin-top: -2rem;
+    :hover {
+      cursor: pointer;
+      transform: scale(1.02);
+      font-weight: 700;
+      color: red;
+    }
   }
 `;
 export const AsidCart = styled.aside`
@@ -44,6 +51,7 @@ export const AsidCart = styled.aside`
   max-height: 800px;
   width: 365px;
   background-color: var(--white-1);
+  margin-top: 1rem;
 
   @media (max-width: 800px) {
     width: 90%;

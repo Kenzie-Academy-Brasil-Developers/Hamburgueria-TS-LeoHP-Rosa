@@ -21,11 +21,17 @@ export const ContainerUl = styled.ul`
   button {
     height: 40px;
     width: 106px;
-    border: 2px solid var(--color-green);
-    background-color: var(--color-green);
+    border: 2px solid var(--grey-2);
+    background-color: var(--grey-2);
     color: white;
     border-radius: 8px;
     padding: 0px 20px 0px 20px;
+    :hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      border: 2px solid var(--color-green);
+      background-color: var(--color-green);
+    }
   }
   figure {
     background-color: var(--grey-1);
