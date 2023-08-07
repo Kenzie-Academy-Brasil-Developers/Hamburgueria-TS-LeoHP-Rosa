@@ -10,9 +10,11 @@ export const BtnRemove = styled.button`
   border: 0px;
 
   :hover {
+    cursor: pointer;
     display: block;
     padding: 1rem;
-    color: red;
+    color: white;
+    background-color: red;
     border: 1px solid red;
     font-weight: 700;
   }
@@ -32,8 +34,8 @@ export const Navbar = styled.div`
   justify-content: space-between;
   padding: 0 2rem;
   background-color: rgba(206, 209, 211, 0.607);
-  @media (max-width: 800px) {
-    width: 100%;
+  @media (max-width: 600px) {
+    width: 100vw;
     flex-direction: column;
     height: max-content;
     gap: 1rem;
@@ -123,4 +125,9 @@ export const DivTitle = styled.div`
     margin-top: 13px;
     color: #eb5757;
   }
+`;
+
+export const NavDivStyle = styled.div`
+  display: flex;
+  width: 100vw;
 `;

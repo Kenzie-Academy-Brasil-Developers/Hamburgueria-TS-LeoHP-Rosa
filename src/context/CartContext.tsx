@@ -1,25 +1,24 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
+import { UserContext } from "./UserContext";
 
 export const CartContext = createContext({} as IcartProps);
 interface IcartProps {
-  menuCart: any;
-  menuList: any;
-  setMenuList: any;
-  allList: any;
-  setAllList: any;
-  filtered: any;
-  setFiltered: any;
+  menuCart: any[];
+  allList: never[];
+  setAllList: React.Dispatch<React.SetStateAction<never[]>>;
+  filtered: string;
+  setFiltered: React.Dispatch<React.SetStateAction<string>>;
   removeItem: any;
   removeAll: any;
   addCart: any;
-  active: any;
+  active: boolean;
   filters: any;
   submit: any;
   clearFilter: any;
-  btnLogout: any;
+  btnLogout: () => void;
 }
 
 interface iCartProviderProps {
@@ -32,15 +31,16 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
     localStorage.clear();
     navigate("/");
   };
-  const [menuList, setMenuList] = useState([]);
+  const { menuList, setMenuList, menuCart, setMenuCart } =
+    useContext(UserContext);
   const [allList, setAllList] = useState([]);
   const [filtered, setFiltered] = useState("");
   const [active, setActive] = useState(false);
 
-  function filters(value: string) {
+  const filters = (value: string) => {
     setFiltered(value.trim().toLowerCase());
-  }
-  function submit() {
+  };
+  const submit = () => {
     setActive(true);
     const filter = menuList.filter(
       (item: { name: string; category: string }) =>
@@ -48,20 +48,15 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
         item.category.toLowerCase().includes(filtered)
     );
     setMenuList(filter);
-  }
-  function clearFilter() {
+  };
+  const clearFilter = () => {
     setActive(false);
     const allValue = "e";
     const filter = allList.filter((item: { category: string | string[] }) =>
       item.category.includes(allValue)
     );
     setMenuList(filter);
-  }
-  const localStorageMenu = localStorage.getItem("menucart");
-
-  const [menuCart, setMenuCart] = useState(
-    localStorageMenu ? JSON.parse(localStorageMenu) : []
-  );
+  };
 
   useEffect(() => {
     async function getList() {
@@ -81,23 +76,32 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
     }
     getList();
   }, []);
-  function addCart(cartNewList: any) {
-    if (!menuCart.includes(cartNewList)) {
-      setMenuCart([...menuCart, cartNewList]);
+  const addCart = (cartNewList: any) => {
+    const localStorageMenu = localStorage.getItem("menucart");
+    const currentCartList = localStorageMenu
+      ? JSON.parse(localStorageMenu)
+      : [];
+    if (!currentCartList.some((item: any) => item.id === cartNewList.id)) {
+      const updatedCartList = [...currentCartList, cartNewList];
+      localStorage.setItem("menucart", JSON.stringify(updatedCartList));
+      setMenuCart(updatedCartList);
       toast.success("Item adicionado ao carrinho");
     } else {
-      toast.error("Você ja adicionou este item");
+      toast.error("Você já adicionou este item");
     }
-  }
-  function removeItem(itemId: any) {
+  };
+  const removeItem = (itemId: any) => {
     const listFilter = menuCart.filter((item: any) => item.id !== itemId);
     setMenuCart(listFilter);
+    localStorage.setItem("menucart", JSON.stringify(listFilter)); // Atualiza o localStorage
     toast.warn("Item removido do carrinho");
-  }
-  function removeAll() {
+  };
+
+  const removeAll = () => {
     setMenuCart([]);
-    toast.error("Alguem não está com fome é uma pena!");
-  }
+    localStorage.removeItem("menucart");
+    toast.error("Alguém não está com fome, é uma pena!");
+  };
   return (
     <CartContext.Provider
       value={{
@@ -106,8 +110,6 @@ export const CartProvider = ({ children }: iCartProviderProps) => {
         filters,
         submit,
         clearFilter,
-        menuList,
-        setMenuList,
         allList,
         setAllList,
         filtered,

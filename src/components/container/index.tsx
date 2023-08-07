@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
 import { ContainerUl, InfoValues, ProductList } from "./styles";
 
 const Container = () => {
-  const { menuList, addCart } = useContext(CartContext);
+  const { addCart } = useContext(CartContext);
+  const { menuList } = useContext(UserContext);
 
   return (
     <ContainerUl>

@@ -18,7 +18,7 @@ export const DivMain = styled.div`
   justify-content: space-around;
 
   @media (max-width: 800px) {
-    width: 100%;
+    width: 100vw;
     flex-direction: column;
     align-items: center;
   }

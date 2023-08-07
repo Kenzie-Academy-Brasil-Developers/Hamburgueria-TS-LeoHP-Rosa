@@ -6,6 +6,9 @@ export const ContImgStyle = styled.div`
   width: 500px;
   height: 500px;
   gap: 2rem;
+  @media (max-width: 600px) {
+    display: none;
+  }
   span {
     display: flex;
     width: 377px;

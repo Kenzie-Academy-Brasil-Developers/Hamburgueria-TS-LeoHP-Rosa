@@ -70,6 +70,7 @@ export const DivText = styled.div`
   font-weight: 700;
   @media (max-width: 800px) {
     width: 100%;
+    height: fit-content;
   }
 `;
 export const UlCart = styled.ul`
@@ -81,6 +82,12 @@ export const UlCart = styled.ul`
   max-height: max-content;
   background-color: var(--white-1);
   margin-top: 1rem;
+  @media (max-width: 800px) {
+    width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: max-content;
+  }
 
   span {
     color: var(--color-green);

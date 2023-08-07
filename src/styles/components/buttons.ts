@@ -17,6 +17,10 @@ export const ButtonGreen = styled.button`
     cursor: pointer;
     transform: scale(1.05);
   }
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 export const GreyButton = styled.button`
   height: 60px;
@@ -33,5 +37,9 @@ export const GreyButton = styled.button`
     color: 1px solid var(--black);
     cursor: pointer;
     transform: scale(1.05);
+  }
+
+  @media (max-width: 600px) {
+    width: 90vw;
   }
 `;

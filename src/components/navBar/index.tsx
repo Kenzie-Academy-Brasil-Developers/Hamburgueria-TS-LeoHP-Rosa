@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
-import { BtnRemove, DivTitle, Navbar } from "./styles";
+import { useContext } from "react";
 import { GrLogout } from "react-icons/gr";
+import { CartContext } from "../../context/CartContext";
+import { BtnRemove, DivTitle, Navbar, NavDivStyle } from "./styles";
 
 const NavBar = ({}) => {
   const { filters, submit, active, clearFilter, btnLogout } =
     useContext(CartContext);
 
   return (
-    <div>
+    <NavDivStyle>
       <Navbar>
         <DivTitle className="title">
           <h2>Burguer</h2>
@@ -33,7 +33,7 @@ const NavBar = ({}) => {
       ) : (
         <></>
       )}
-    </div>
+    </NavDivStyle>
   );
 };
 

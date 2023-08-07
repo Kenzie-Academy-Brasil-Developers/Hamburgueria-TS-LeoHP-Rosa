@@ -8,7 +8,7 @@ export const ContainerUl = styled.ul`
   flex-wrap: wrap;
   justify-content: space-around;
   @media (max-width: 800px) {
-    width: 100%;
+    width: 95vw;
     display: flex;
     flex-wrap: nowrap;
     gap: 0.3rem;
@@ -16,6 +16,8 @@ export const ContainerUl = styled.ul`
     height: 350px;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 4rem;
+    overflow-y: hidden;
   }
 
   button {
@@ -63,9 +65,7 @@ export const ProductList = styled.li`
   @media (max-width: 800px) {
     height: 346px;
     min-width: 300px;
-
     border-radius: 5px;
-
     align-items: center;
     display: flex;
     flex-direction: column;

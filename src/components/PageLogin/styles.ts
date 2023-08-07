@@ -13,9 +13,16 @@ export const LeftCont = styled.div`
   gap: 1rem;
   background-color: white;
 
+  @media (max-width: 600px) {
+    width: 95vw;
+  }
+
   h2 {
     font-size: 18px;
     margin-left: -22rem;
+    @media (max-width: 600px) {
+      margin-left: 0rem;
+    }
   }
 
   form {
@@ -25,6 +32,10 @@ export const LeftCont = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+
+    @media (max-width: 600px) {
+      width: 95vw;
+    }
   }
   label {
     padding: 0.5rem 1rem;
@@ -34,6 +45,9 @@ export const LeftCont = styled.div`
     margin-bottom: -1.7rem;
     border-radius: 1rem;
     z-index: 1;
+    @media (max-width: 600px) {
+      margin-left: -18rem;
+    }
   }
   p {
     height: 36px;
@@ -47,6 +61,9 @@ export const LeftCont = styled.div`
     border-radius: 0.5rem;
     padding: 1rem;
     border: 1px solid var(--grey-3);
+    @media (max-width: 600px) {
+      width: 90vw;
+    }
   }
   .link {
     text-decoration: none;
